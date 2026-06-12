@@ -82,7 +82,7 @@ export default function SplashAnimation({ onFinish }) {
         marginTop: 24, 
         alignItems: "center" 
       }}>
-        <Text style={styles.appName}>Neighborhood Cart</Text>
+        <Text style={styles.appName}>NearBuy</Text>
         <Text style={styles.appSubtitle}>Connecting you to your local store</Text>
       </Animated.View>
     </View>

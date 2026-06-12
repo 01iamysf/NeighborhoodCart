@@ -28,7 +28,7 @@ app.use(express.json());
 
 // Health check
 app.get("/", (req, res) => {
-  res.send("Neighborhood Cart Backend is running");
+  res.send("NearBuy Backend is running");
 });
 
 // Routes
@@ -38,5 +38,5 @@ app.use(router);
 // Port
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`Neighborhood Cart Backend listening on port ${PORT}`);
+  console.log(`NearBuy Backend listening on port ${PORT}`);
 });

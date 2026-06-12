@@ -47,7 +47,7 @@ function Home() {
       {/* Footer Section */}
       <section className="home-footer">
         <p>
-          © {new Date().getFullYear()} Neighborhood Cart — Built by Md Yusuf
+          © {new Date().getFullYear()} NearBuy — Built by Md Yusuf
         </p>
       </section>
     </div>
