@@ -1,13 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #059669; /* Emerald Green */
+  --primary-hover: #047857;
+  --bg-slate: #f8fafc;
+  --dark-text: #0f172a;
+  --light-text: #64748b;
+  --border: #e2e8f0;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-color: var(--bg-slate) !important;
+  color: var(--dark-text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Global button overrides */
+.btn-primary, 
+.btn-danger {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 8px 18px !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.btn-primary:hover, 
+.btn-danger:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  transform: translateY(-1px);
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.7) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+/* Custom form inputs */
+.form-control {
+  border-radius: 8px !important;
+  border: 1px solid var(--border) !important;
+  padding: 10px 14px !important;
+  font-size: 15px !important;
+  background-color: #ffffff !important;
+  color: var(--dark-text) !important;
+}
+
+.form-control:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15) !important;
+}
+
+/* Navbar override */
+.navbar.bg-danger {
+  background-color: var(--primary) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom Card Container styles */
+.card-custom {
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+  padding: 30px;
+  margin-top: 40px;
+}
+
+/* Tables styling */
+.table {
+  background-color: #ffffff !important;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.table th {
+  background-color: #f1f5f9 !important;
+  color: #475569 !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid var(--border) !important;
+}
+
+.table td {
+  vertical-align: middle !important;
+  color: var(--dark-text);
+  border-bottom: 1px solid var(--border);
 }

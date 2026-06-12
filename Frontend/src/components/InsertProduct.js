@@ -3,108 +3,147 @@ import { NavLink, useNavigate } from "react-router-dom";
 import API from "../api/api";
 
 export default function InsertProduct() {
+  const [productName, setProductName] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productBarcode, setProductBarcode] = useState("");
+  const [productQuantity, setProductQuantity] = useState("10");
+  const [productCategory, setProductCategory] = useState("Grains");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-    const [productName, setProductName] = useState("");
-    const [productPrice, setProductPrice] = useState("");
-    const [productBarcode, setProductBarcode] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const addProduct = async (e) => {
+    e.preventDefault();
 
-    const addProduct = async (e) => {
-        e.preventDefault();
+    if (!productName || !productPrice || !productBarcode) {
+      setError("*Please fill in all the required fields.");
+      return;
+    }
 
-        if (!productName || !productPrice || !productBarcode) {
-            setError("*Please fill in all the required fields.");
-            return;
-        }
+    setLoading(true);
+    setError("");
 
-        setLoading(true);
-        setError("");
+    try {
+      await API.post("/insertproduct", {
+        ProductName: productName,
+        ProductPrice: parseFloat(productPrice),
+        ProductBarcode: productBarcode,
+        ProductQuantity: parseInt(productQuantity) || 0,
+        ProductCategory: productCategory,
+      });
 
-        try {
-            await API.post("/insertproduct", {
-                ProductName: productName,
-                ProductPrice: productPrice,
-                ProductBarcode: productBarcode,
-            });
+      alert("Product inserted successfully");
+      navigate("/products");
+    } catch (err) {
+      if (err.response?.status === 422) {
+        setError("Product is already added with this barcode/code.");
+      } else {
+        setError("An error occurred. Please try again later.");
+      }
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-            alert("Product inserted successfully");
+  return (
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-7">
+          <div className="card-custom">
+            <h2 className="fw-bold text-success mb-3 text-center">Add Product to Shop</h2>
+            <p className="text-muted text-center mb-4">Enter product details, pricing, stock, and barcode code below.</p>
 
-            setProductName("");
-            setProductPrice("");
-            setProductBarcode("");
+            <form onSubmit={addProduct}>
+              {error && (
+                <div className="alert alert-danger text-center py-2" role="alert">
+                  {error}
+                </div>
+              )}
 
-            navigate("/products");
-
-        } catch (err) {
-            if (err.response?.status === 422) {
-                setError("Product is already added with this barcode.");
-            } else {
-                setError("An error occurred. Please try again later.");
-            }
-            console.error(err);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    return (
-        <div className="container-fluid p-5">
-            <h1>Enter Product Information</h1>
-
-            <div className="mt-5 col-lg-6 fs-4">
-                <label className="form-label fw-bold">Product Name</label>
+              <div className="mb-3">
+                <label className="form-label fw-bold text-secondary">Product Name</label>
                 <input
-                    type="text"
-                    className="form-control fs-5"
-                    value={productName}
-                    onChange={(e) => setProductName(e.target.value)}
-                    placeholder="Enter Product Name"
+                  type="text"
+                  className="form-control"
+                  value={productName}
+                  onChange={(e) => setProductName(e.target.value)}
+                  placeholder="e.g. Premium White Sugar (1kg)"
+                  required
                 />
-            </div>
+              </div>
 
-            <div className="mt-3 col-lg-6 fs-4">
-                <label className="form-label fw-bold">Product Price</label>
-                <input
+              <div className="row">
+                <div className="col-md-6 mb-3">
+                  <label className="form-label fw-bold text-secondary">Price ($)</label>
+                  <input
                     type="number"
-                    className="form-control fs-5"
+                    step="0.01"
+                    className="form-control"
                     value={productPrice}
                     onChange={(e) => setProductPrice(e.target.value)}
-                    placeholder="Enter Product Price"
-                />
-            </div>
+                    placeholder="e.g. 1.80"
+                    required
+                  />
+                </div>
 
-            <div className="mt-3 mb-5 col-lg-6 fs-4">
-                <label className="form-label fw-bold">Product Barcode</label>
-                <input
+                <div className="col-md-6 mb-3">
+                  <label className="form-label fw-bold text-secondary">Initial Stock Quantity</label>
+                  <input
                     type="number"
-                    className="form-control fs-5"
-                    value={productBarcode}
-                    onChange={(e) => setProductBarcode(e.target.value)}
-                    placeholder="Enter Product Barcode"
-                />
-            </div>
+                    className="form-control"
+                    value={productQuantity}
+                    onChange={(e) => setProductQuantity(e.target.value)}
+                    placeholder="e.g. 50"
+                  />
+                </div>
+              </div>
 
-            <div className="d-flex justify-content-center col-lg-6">
-                <NavLink to="/products" className="btn btn-primary me-5 fs-4">
-                    Cancel
+              <div className="mb-3">
+                <label className="form-label fw-bold text-secondary">Category</label>
+                <select
+                  className="form-control"
+                  value={productCategory}
+                  onChange={(e) => setProductCategory(e.target.value)}
+                >
+                  <option value="Grains">Grains & Flour</option>
+                  <option value="Spices">Spices & Salt</option>
+                  <option value="Dairy">Dairy & Eggs</option>
+                  <option value="Snacks">Snacks & Beverages</option>
+                  <option value="Household">Household & Soap</option>
+                  <option value="General">General Grocery</option>
+                </select>
+              </div>
+
+              <div className="mb-4">
+                <label className="form-label fw-bold text-secondary">Product Barcode / Item Code</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={productBarcode}
+                  onChange={(e) => setProductBarcode(e.target.value)}
+                  placeholder="e.g. 890123456"
+                  required
+                />
+              </div>
+
+              <div className="d-flex justify-content-between gap-3 mt-4">
+                <NavLink to="/products" className="btn btn-outline-light border text-secondary flex-grow-1 text-center py-2">
+                  Cancel
                 </NavLink>
                 <button
-                    onClick={addProduct}
-                    className="btn btn-primary fs-4"
-                    disabled={loading}
+                  type="submit"
+                  className="btn btn-primary flex-grow-1 py-2"
+                  disabled={loading}
                 >
-                    {loading ? "Inserting..." : "Insert"}
+                  {loading ? "Adding Item..." : "Add Product"}
                 </button>
-            </div>
-
-            {error && (
-                <div className="text-danger mt-3 fs-5 fw-bold text-center col-lg-6">
-                    {error}
-                </div>
-            )}
+              </div>
+            </form>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }

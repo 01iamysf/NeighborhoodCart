@@ -10,8 +10,21 @@ const ProductSchema = new mongoose.Schema(
             required: true,
         },
         ProductBarcode: {
-            type: Number,
+            type: String,
             required: true,
+        },
+        ProductQuantity: {
+            type: Number,
+            default: 0,
+        },
+        ProductCategory: {
+            type: String,
+            required: true,
+            default: "General",
+        },
+        IsAvailable: {
+            type: Boolean,
+            default: true,
         },
     });
 
