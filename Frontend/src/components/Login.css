@@ -1,0 +1,484 @@
+/* Custom styling for NearBuy Login Page */
+:root {
+  --nb-primary: #00875a;
+  --nb-primary-hover: #006b47;
+  --nb-primary-light: #e6f6ef;
+  --nb-bg-sidebar: #e1f2e8; /* Richer, visible pastel green */
+  --nb-bg-main: #ffffff;    /* Clean white background to contrast the sidebar */
+  --nb-text-dark: #1e293b;
+  --nb-text-muted: #64748b;
+  --nb-border: #d0d5dd;
+  --nb-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.04), 0 4px 12px -2px rgba(0, 0, 0, 0.02);
+}
+
+/* Global reset to remove default margins/paddings from all parent wrappers */
+html, body, #root, .App {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: var(--nb-bg-main) !important;
+  overflow: hidden; /* Avoids window scroll bar on desktop */
+}
+
+.login-page-container {
+  display: flex;
+  height: 100vh; /* Fixed height to match viewport */
+  width: 100%;
+  background-color: var(--nb-bg-main);
+  color: var(--nb-text-dark);
+  font-family: 'Times New Roman', Times, serif !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Sidebar Section (Left Pane) */
+.login-sidebar {
+  width: 40%;
+  background-color: var(--nb-bg-sidebar);
+  padding: 2.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Keeps items naturally aligned */
+  gap: 1.5rem;                  /* Clean spacing */
+  border-bottom-right-radius: 90px;
+  box-shadow: 6px 0 24px rgba(0, 135, 90, 0.04);
+  overflow-y: auto;             /* Allows scrolling inside sidebar only if display is exceptionally short */
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.brand-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-logo-text {
+  font-size: 28px; /* Increased from 26px */
+  font-weight: 700;
+  color: var(--nb-text-dark);
+  letter-spacing: -0.5px;
+}
+
+.brand-logo-text span {
+  font-weight: 700;
+}
+
+.sidebar-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sidebar-headline {
+  font-size: 26px; /* Increased from 24px */
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  color: var(--nb-text-dark);
+}
+
+.sidebar-headline span.highlight-green {
+  color: var(--nb-primary);
+  display: block;
+}
+
+.sidebar-subhead {
+  font-size: 15px; /* Increased from 13.5px */
+  color: var(--nb-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Illustration spacing */
+.storefront-illustration-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.25rem;
+  max-width: 100%;
+}
+
+.storefront-illustration-wrapper svg {
+  max-width: 210px; /* Reduced from 240px to leave vertical room for larger text */
+  width: 100%;
+  height: auto;
+}
+
+/* Features List styling */
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Compact features list spacing */
+  margin-top: 0.25rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.feature-icon-circle {
+  width: 36px; /* Increased from 34px */
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background-color: var(--nb-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--nb-primary);
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.feature-item:hover .feature-icon-circle {
+  transform: scale(1.08);
+}
+
+.feature-text-content h4 {
+  font-size: 14.5px; /* Increased from 13.5px */
+  font-weight: 600;
+  color: var(--nb-text-dark);
+  margin: 0 0 2px 0;
+}
+
+.feature-text-content p {
+  font-size: 13px; /* Increased from 12px */
+  color: var(--nb-text-muted);
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Main Section (Right Pane) */
+.login-main-section {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.25rem 2rem 1.25rem; /* Reduced paddings */
+  background-color: var(--nb-bg-main);
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.login-card-wrapper {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+  max-width: 440px; /* Compact width */
+}
+
+.login-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 20px;
+  padding: 2.25rem 2.25rem; /* Compact padding */
+  box-shadow: var(--nb-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-lock-badge {
+  width: 48px; /* Compact lock badge */
+  height: 48px;
+  background-color: var(--nb-primary-light);
+  color: var(--nb-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
+
+.login-card-title {
+  font-size: 25px; /* Increased from 22px */
+  font-weight: 700;
+  color: var(--nb-text-dark);
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.login-card-subtitle {
+  font-size: 15px; /* Increased from 13.5px */
+  color: var(--nb-text-muted);
+  margin-bottom: 1.5rem; /* Reduced spacing */
+  text-align: center;
+}
+
+.login-form-custom {
+  width: 100%;
+}
+
+.form-group-custom {
+  margin-bottom: 1rem; /* Compact spacing */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.form-group-custom label {
+  font-size: 14.5px; /* Increased from 13.5px */
+  font-weight: 600;
+  color: var(--nb-text-dark);
+}
+
+.input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-prefix {
+  position: absolute;
+  left: 14px;
+  color: var(--nb-text-muted);
+  font-size: 15px;
+  pointer-events: none;
+}
+
+.input-field-custom {
+  width: 100%;
+  padding: 10px 14px 10px 40px; /* Slim padding */
+  font-size: 14.5px; /* Increased from 13.5px */
+  color: var(--nb-text-dark);
+  background-color: #ffffff;
+  border: 1px solid var(--nb-border);
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-field-custom::placeholder {
+  color: #98a2b3;
+}
+
+.input-field-custom:focus {
+  border-color: var(--nb-primary);
+  box-shadow: 0 0 0 4px rgba(0, 135, 90, 0.08);
+}
+
+.input-icon-suffix-toggle {
+  position: absolute;
+  right: 14px;
+  color: var(--nb-text-muted);
+  font-size: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-icon-suffix-toggle:hover {
+  color: var(--nb-text-dark);
+}
+
+/* Form Helper Options (Remember & Forgot) */
+.form-options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.6rem;
+  margin-bottom: 1.25rem; /* Reduced spacing */
+}
+
+.checkbox-label-custom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px; /* Increased from 13.5px */
+  font-weight: 500;
+  color: var(--nb-text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-input-custom {
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  border: 1px solid var(--nb-border);
+  accent-color: var(--nb-primary);
+  cursor: pointer;
+}
+
+.forgot-password-link {
+  font-size: 14px; /* Increased from 13.5px */
+  font-weight: 600;
+  color: var(--nb-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-password-link:hover {
+  color: var(--nb-primary-hover);
+  text-decoration: underline;
+}
+
+/* Action Buttons */
+.btn-login-custom {
+  width: 100%;
+  background-color: var(--nb-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px; /* Slim padding */
+  font-size: 15.5px; /* Increased from 14px */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-login-custom:hover {
+  background-color: var(--nb-primary-hover);
+  transform: translateY(-0.5px);
+}
+
+.btn-login-custom:active {
+  transform: translateY(0.5px);
+}
+
+.btn-login-custom:disabled {
+  background-color: #a3e0c7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.divider-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0; /* Reduced from 1.5rem */
+  color: var(--nb-text-muted);
+  font-size: 12px; /* Increased from 11px */
+  font-weight: 500;
+  gap: 12px;
+}
+
+.divider-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: rgba(226, 232, 240, 0.8);
+}
+
+/* Google Button */
+.btn-google-custom {
+  width: 100%;
+  background-color: #ffffff;
+  color: var(--nb-text-dark);
+  border: 1px solid var(--nb-border);
+  border-radius: 8px;
+  padding: 10px; /* Slim padding */
+  font-size: 14.5px; /* Increased from 13.5px */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-google-custom:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+.google-icon-svg {
+  width: 16px;
+  height: 16px;
+}
+
+.register-prompt-text {
+  margin-top: 1.25rem; /* Reduced space */
+  font-size: 14.5px; /* Increased from 13.5px */
+  color: var(--nb-text-muted);
+  text-align: center;
+}
+
+.register-link-custom {
+  font-weight: 600;
+  color: var(--nb-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.register-link-custom:hover {
+  color: var(--nb-primary-hover);
+  text-decoration: underline;
+}
+
+/* Footer Section */
+.login-footer-text {
+  font-size: 12px; /* Increased from 11px */
+  color: var(--nb-text-muted);
+  text-align: center;
+  margin-top: auto;
+}
+
+/* Alert Message (Error alerts styled beautifully) */
+.login-alert-danger {
+  width: 100%;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13.5px;
+  margin-bottom: 1rem;
+  text-align: left;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  html, body, #root, .App {
+    overflow: auto; /* Let scroll function normally on smaller screens */
+  }
+
+  .login-page-container {
+    flex-direction: column;
+    height: auto;
+    overflow-y: auto;
+  }
+  
+  .login-sidebar {
+    width: 100%;
+    border-bottom-right-radius: 40px;
+    padding: 2rem 2rem;
+    min-height: auto;
+    height: auto;
+    max-height: none;
+  }
+  
+  .login-main-section {
+    width: 100%;
+    padding: 2.5rem 1.5rem 2rem;
+    min-height: auto;
+    height: auto;
+  }
+
+  .login-card-wrapper {
+    max-width: 100%;
+  }
+
+  .login-card {
+    padding: 2rem 1.8rem 1.8rem;
+  }
+}
