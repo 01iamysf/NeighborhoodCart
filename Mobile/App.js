@@ -12,9 +12,11 @@ import LoginScreen from "./src/screens/LoginScreen";
 import RegisterScreen from "./src/screens/RegisterScreen";
 import CustomerDashboard from "./src/screens/CustomerDashboard";
 import ShopkeeperDashboard from "./src/screens/ShopkeeperDashboard";
+import SplashAnimation from "./src/components/SplashAnimation";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  const [showSplash, setShowSplash] = useState(true);
   const [user, setUser] = useState(null);
   const [screen, setScreen] = useState("login"); // login, register, dashboard
 
@@ -56,6 +58,10 @@ export default function App() {
       setLoading(false);
     }
   };
+
+  if (showSplash) {
+    return <SplashAnimation onFinish={() => setShowSplash(false)} />;
+  }
 
   if (loading) {
     return (
