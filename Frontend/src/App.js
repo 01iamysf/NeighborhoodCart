@@ -19,7 +19,7 @@ import {
 function App() {
   return (
     <Router>
-      <Navbar title="IMS" about="About" />
+      <Navbar title="Neighborhood Cart" about="About" />
 
       <div className="App">
         <Routes>

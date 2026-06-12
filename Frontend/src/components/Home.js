@@ -44,10 +44,10 @@ function Home() {
         </button>
       </section>
 
-   {/* Footer Section */}
+      {/* Footer Section */}
       <section className="home-footer">
         <p>
-          © {new Date().getFullYear()} IMS — Built by Md Yusuf
+          © {new Date().getFullYear()} Neighborhood Cart — Built by Md Yusuf
         </p>
       </section>
     </div>

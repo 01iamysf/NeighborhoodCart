@@ -53,7 +53,7 @@ export default function LoginScreen({ onLoginSuccess, onNavigateToRegister }) {
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <View style={styles.card}>
           <Text style={styles.emoji}>🏪</Text>
-          <Text style={styles.title}>Neighborhood Store</Text>
+          <Text style={styles.title}>Neighborhood Cart</Text>
           <Text style={styles.subtitle}>Order fresh groceries and get them delivered to your home.</Text>
 
           {error ? <Text style={styles.errorText}>{error}</Text> : null}
