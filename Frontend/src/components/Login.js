@@ -52,7 +52,7 @@ function Login() {
             <path d="M15 9V6C15 4.34315 13.6569 3 12 3C10.3431 3 9 4.34315 9 6V9" stroke="#00875a" strokeWidth="2.5" strokeLinecap="round" />
             <path d="M9 13C9.8 14.5 14.2 14.5 15 13" stroke="#ffffff" strokeWidth="1.8" strokeLinecap="round" />
           </svg>
-          <span className="brand-logo-text">Near<span>Buy</span></span>
+          <span className="brand-logo-text">Groc<span>Buket</span></span>
         </div>
 
         {/* Headline & Illustration */}
@@ -62,7 +62,7 @@ function Login() {
             <span className="highlight-green">Serve your neighborhood.</span>
           </h1>
           <p className="sidebar-subhead">
-            NearBuy helps local stores manage orders, products and deliveries with ease.
+            GrocBuket helps local stores manage orders, products and deliveries with ease.
           </p>
 
           {/* Storefront Illustration */}
@@ -320,7 +320,7 @@ function Login() {
 
         {/* Footer */}
         <p className="login-footer-text">
-          &copy; {new Date().getFullYear()} NearBuy. All rights reserved.
+          &copy; {new Date().getFullYear()} GrocBuket. All rights reserved.
         </p>
       </div>
     </div>

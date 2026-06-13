@@ -19,7 +19,7 @@ import {
 function App() {
   return (
     <Router>
-      <Navbar title="NearBuy" about="About" />
+      <Navbar title="GrocBuket" about="About" />
 
       <div className="App">
         <Routes>

@@ -1,7 +1,7 @@
 {
-  "name": "nearbuy-backend",
+  "name": "grocbuket-backend",
   "version": "1.0.0",
-  "description": "NearBuy Backend",
+  "description": "GrocBuket Backend",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

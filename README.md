@@ -1,4 +1,4 @@
-# NearBuy - Local Store Ordering App
+# GrocBuket - Local Store Ordering App
 
 This project is a mobile ordering system designed for local mom-and-pop stores (general stores / Kirana stores) to let their neighborhood customers place orders from home instead of using paper lists or messy WhatsApp messages. The app tracks order statuses (Pending, Packed, Out for Delivery, Delivered) and keeps records of customer balances through a digital credit (Khata) ledger.
 

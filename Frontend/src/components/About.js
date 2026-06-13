@@ -8,14 +8,14 @@ export default function About() {
       {/* Logo / Image
       <img
         src={logo}
-        alt="NearBuy Logo"
+        alt="GrocBuket Logo"
         style={{ width: '150px', marginBottom: '20px' }}
       /> */}
 
-      <h1>NearBuy</h1>
+      <h1>GrocBuket</h1>
 
       <p className="mt-3">
-        NearBuy is a web-based application designed
+        GrocBuket is a web-based application designed
         to help businesses efficiently manage their products, stock levels,
         and inventory records. It allows users to add, update, view, and delete
         inventory items in real time.
