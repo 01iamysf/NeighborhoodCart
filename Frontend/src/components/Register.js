@@ -37,10 +37,9 @@ function Register() {
   };
 
   return (
-    <div className="container d-flex align-items-center justify-content-center" style={{ minHeight: '85vh' }}>
-      <div className="row justify-content-center w-100">
-        <div className="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
-          <div className="card-custom text-center mt-0 shadow-sm">
+    <div className="d-flex flex-column justify-content-center align-items-center" style={{ minHeight: 'calc(100vh - 80px)', padding: '2rem 1rem' }}>
+      <div className="w-100" style={{ maxWidth: '450px' }}>
+        <div className="card-custom text-center shadow-sm w-100" style={{ marginTop: 0 }}>
             <h2 className="mb-2 fw-bold text-success">Create Account</h2>
             <p className="text-muted mb-4">Register as a customer or local shop owner.</p>
 
@@ -131,7 +130,7 @@ function Register() {
           </div>
         </div>
       </div>
-    </div>
+
   );
 }
 
