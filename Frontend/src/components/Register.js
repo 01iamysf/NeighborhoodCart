@@ -37,10 +37,10 @@ function Register() {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-5">
-          <div className="card-custom text-center">
+    <div className="container d-flex align-items-center justify-content-center" style={{ minHeight: '85vh' }}>
+      <div className="row justify-content-center w-100">
+        <div className="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
+          <div className="card-custom text-center mt-0 shadow-sm">
             <h2 className="mb-2 fw-bold text-success">Create Account</h2>
             <p className="text-muted mb-4">Register as a customer or local shop owner.</p>
 
